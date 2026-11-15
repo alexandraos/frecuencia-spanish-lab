@@ -103,7 +103,7 @@ function showToast(s){const t=document.getElementById('toast');t.textContent=s;t
  }
  function savePop(){try{localStorage.setItem(POP_POOL,JSON.stringify(popPool.slice(0,120)));localStorage.setItem(POP_SEEN,JSON.stringify([...popSeen].slice(-1000)))}catch(_){}}
  function shortTokenCount(text){return(text.match(/[\p{L}\p{M}]+(?:['’][\p{L}\p{M}]+)?/gu)||[]).length}
- function suitablePair(x){const text=(x.es+' '+x.en).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase();return !/\b(?:asshole|bitch|cocksucker|cunt|dick|faggot|fuck(?:er|ing|ed|s)?|motherfucker|nigger|pussy|retard|shit|slut|whore|chingad[oa]s?|chingar|coño|puta|puto|mierda|cabr[oó]n|verga|maricon|cono|zorra)\b/i.test(text)}
+ function suitablePair(x){const text=(x.es+' '+x.en).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase();return !/\b(?:asshole|bastard|bitch|cocksucker|crap|cunt|damn|dick|faggot|fuck(?:er|ing|ed|s)?|hell|motherfucker|nigger|pussy|retard|screw(?:ed|ing)?|shit|slut|whore|chingad[oa]s?|chingar|jod[a-z]*|coño|puta|puto|mierda|cabr[oó]n|verga|maricon|cono|zorra)\b/i.test(text)}
  async function fetchPopBatch(){
    if(popRequest)return popRequest;const p=new URLSearchParams({lang:'spa','trans:lang':'eng','trans:is_direct':'yes','trans:is_unapproved':'no','showtrans:lang':'eng',sort:'random',limit:'30',word_count:'1-3',is_unapproved:'no',is_orphan:'no'});
    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
